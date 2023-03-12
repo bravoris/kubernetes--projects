@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Deployment
+metadata: 
+  name: django-app-deployment
+  labels:
+    app: django-app
+  namespace: django-todo-app
+spec:
+  replicas: 5
+  selector:
+    matchlabels:
+      app: django-app
+  template:
+   metadata:
+      labels:
+        app: django-app
+    spec:
+      containers:
+      - name: django-todo-ctr
+        image: rishhe/react-django:latest
+        ports:
+        - containerPort: 8001
