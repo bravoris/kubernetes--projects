@@ -1,17 +1,17 @@
-apiVersion: apps/1
+apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: django-app-deployment
   labels:
     app: django-app
-  namespace: django-todo-app
+  namespace: django-todo-app 
 spec:
   replicas: 5
   selector:
-    matchlabels:
+    matchLabels:
       app: django-app
   template:
-   metadata:
+    metadata:
       labels:
         app: django-app
     spec:
